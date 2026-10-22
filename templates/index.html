@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}ChurnIQ — Predict Telecom Customer Churn{% endblock %}
+
+{% block content %}
+<section class="hero-page">
+  <div class="container">
+    <span class="brand"><span class="dot"></span> ChurnIQ</span>
+    <h1>Predict Customer Churn<br>with Confidence</h1>
+    <p class="subtitle">An intelligent decision-tree powered tool that helps telecom businesses identify at-risk customers before they leave — and act in time.</p>
+    <div class="hero-actions">
+      <a href="{{ url_for('predict') }}" class="btn primary">Start Prediction</a>
+      <a href="{{ url_for('insights') }}" class="btn ghost">View Insights</a>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <h2 class="section-heading">Why ChurnIQ?</h2>
+    <p class="section-sub">Everything you need to understand and reduce customer attrition.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Real-time Prediction</h3>
+        <p>Enter 19 customer attributes and get an instant churn risk score with confidence percentage.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌳</div>
+        <h3>Decision Tree Model</h3>
+        <p>Trained on the well-known Telco Customer Churn dataset with transparent, interpretable results.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3>Clean Experience</h3>
+        <p>Modern dark UI designed for clarity — no clutter, just the insights that matter.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Dataset Insights</h3>
+        <p>Explore key patterns: contract types, tenure groups, and overall churn rate from 7,000+ records.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Privacy First</h3>
+        <p>All predictions run locally. No customer data is stored or sent to external servers.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Lightweight Stack</h3>
+        <p>Flask + scikit-learn + pure CSS. Fast to run, easy to extend, zero frontend frameworks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-value">7,043</div>
+        <div class="stat-label">Customer Records</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">26.5%</div>
+        <div class="stat-label">Overall Churn Rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">19</div>
+        <div class="stat-label">Input Features</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Click to Predict</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Ready to score a customer?</h2>
+    <p>Fill in a few details and discover whether they are at risk of leaving.</p>
+    <a href="{{ url_for('predict') }}" class="btn primary">Go to Predictor</a>
+  </div>
+</section>
+{% endblock %}

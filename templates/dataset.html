@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Dataset — ChurnIQ{% endblock %}
+
+{% block content %}
+<div class="container page">
+  <header class="page-header">
+    <h1>The Dataset</h1>
+    <p class="subtitle">IBM Telco Customer Churn — a widely used public dataset for churn modeling.</p>
+  </header>
+
+  <div class="content-grid">
+    <div class="card prose">
+      <h2>Overview</h2>
+      <p>The dataset contains information about a fictional telecommunications company that provided home phone and Internet services to 7,043 customers in California. Each row represents one customer and includes demographic data, services subscribed, account information, and whether the customer left within the last month.</p>
+      <p>Source: <a href="https://www.kaggle.com/datasets/blastchar/telco-customer-churn" target="_blank" rel="noopener">Kaggle — Telco Customer Churn</a></p>
+    </div>
+
+    <div class="card prose">
+      <h2>Feature Categories</h2>
+      <div class="feature-cats">
+        <div>
+          <h4>Demographics</h4>
+          <p>Gender, SeniorCitizen, Partner, Dependents, Tenure</p>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <p>PhoneService, MultipleLines, InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport, StreamingTV, StreamingMovies</p>
+        </div>
+        <div>
+          <h4>Billing</h4>
+          <p>Contract, PaperlessBilling, PaymentMethod, MonthlyCharges, TotalCharges</p>
+        </div>
+        <div>
+          <h4>Target</h4>
+          <p>Churn (Yes / No)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card prose">
+      <h2>Preprocessing in ChurnIQ</h2>
+      <ul>
+        <li>Tenure is binned into 12-month groups for the model.</li>
+        <li>Categorical variables are one-hot encoded to match the training feature set.</li>
+        <li>A small reference frame (<code>first_telc.csv</code>) ensures consistent column alignment at inference time.</li>
+        <li>The trained model and its expected feature names are loaded once at startup.</li>
+      </ul>
+    </div>
+
+    <div class="card prose">
+      <h2>Files Included</h2>
+      <div class="file-list">
+        <div class="file-row"><code>Telco-Customer-Churn.csv</code><span>Full original dataset</span></div>
+        <div class="file-row"><code>first_telc.csv</code><span>Reference rows for encoding</span></div>
+        <div class="file-row"><code>model.sav</code><span>Serialized Decision Tree model</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

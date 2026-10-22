@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}About — ChurnIQ{% endblock %}
+
+{% block content %}
+<div class="container page">
+  <header class="page-header">
+    <h1>About ChurnIQ</h1>
+    <p class="subtitle">A focused machine-learning tool built to help telecom teams reduce customer attrition.</p>
+  </header>
+
+  <div class="content-grid">
+    <div class="card prose">
+      <h2>The Problem</h2>
+      <p>Customer churn is one of the most expensive problems in the telecom industry. Acquiring a new customer typically costs several times more than retaining an existing one. Identifying customers who are likely to leave — early enough to intervene — can save significant revenue.</p>
+      <p>ChurnIQ turns that challenge into a simple, interactive prediction: feed in a customer’s profile and receive an immediate risk assessment backed by a trained decision-tree model.</p>
+    </div>
+
+    <div class="card prose">
+      <h2>What We Built</h2>
+      <p>ChurnIQ is a lightweight Flask application that wraps a scikit-learn Decision Tree Classifier trained on the public Telco Customer Churn dataset. The interface is deliberately clean: no complex dashboards, no account system — just the form, the result, and supporting context pages.</p>
+      <ul>
+        <li>19 carefully chosen input features</li>
+        <li>One-hot encoding aligned with the training pipeline</li>
+        <li>Instant probability score and clear risk label</li>
+        <li>Fully local inference — your data never leaves the server</li>
+      </ul>
+    </div>
+
+    <div class="card prose">
+      <h2>Tech Stack</h2>
+      <div class="tech-list">
+        <div class="tech-item"><span>Backend</span><strong>Flask 3</strong></div>
+        <div class="tech-item"><span>ML</span><strong>scikit-learn · pandas · numpy</strong></div>
+        <div class="tech-item"><span>Frontend</span><strong>HTML5 + modern CSS</strong></div>
+        <div class="tech-item"><span>Model</span><strong>Decision Tree Classifier</strong></div>
+      </div>
+    </div>
+
+    <div class="card prose">
+      <h2>Design Philosophy</h2>
+      <p>We kept the experience focused and classy: a dark theme with subtle gradients, clear typography, and responsive layouts. Every page shares the same visual language so the product feels cohesive rather than a collection of disconnected screens.</p>
+      <p>No unnecessary JavaScript frameworks. No external analytics. Just a fast, elegant tool you can run locally or deploy in minutes.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

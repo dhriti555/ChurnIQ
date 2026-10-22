@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}How it Works — ChurnIQ{% endblock %}
+
+{% block content %}
+<div class="container page">
+  <header class="page-header">
+    <h1>How it Works</h1>
+    <p class="subtitle">From form submission to risk score — a transparent pipeline.</p>
+  </header>
+
+  <div class="steps">
+    <div class="step card">
+      <div class="step-num">01</div>
+      <h3>Collect Inputs</h3>
+      <p>You provide 19 attributes covering demographics, subscribed services, and billing details. All fields are required so the model receives a complete profile.</p>
+    </div>
+    <div class="step card">
+      <div class="step-num">02</div>
+      <h3>Prepare Features</h3>
+      <p>Tenure is converted into categorical 12-month bins. Categorical columns are one-hot encoded. The resulting vector is aligned to the exact feature set the model was trained on.</p>
+    </div>
+    <div class="step card">
+      <div class="step-num">03</div>
+      <h3>Run the Model</h3>
+      <p>A Decision Tree Classifier (scikit-learn) produces both a binary prediction (churn / stay) and a probability. The probability is shown as a confidence percentage.</p>
+    </div>
+    <div class="step card">
+      <div class="step-num">04</div>
+      <h3>Present the Result</h3>
+      <p>You see a clear headline (“High Churn Risk” or “Customer Likely to Stay”) together with the confidence score. The form retains your inputs so you can tweak values and re-run instantly.</p>
+    </div>
+  </div>
+
+  <div class="card prose" style="margin-top: 40px;">
+    <h2>Why a Decision Tree?</h2>
+    <p>Decision trees are easy to interpret and handle mixed categorical/numerical data well. For a demo-focused product they provide a good balance of accuracy and transparency. The model was trained offline; only the serialized artifact is shipped with the app.</p>
+    <p>No online learning or data collection happens at runtime — every prediction is independent and local.</p>
+  </div>
+
+  <div class="cta-inline">
+    <a href="{{ url_for('predict') }}" class="btn primary">Try the Predictor</a>
+    <a href="{{ url_for('insights') }}" class="btn ghost">Explore Insights</a>
+  </div>
+</div>
+{% endblock %}

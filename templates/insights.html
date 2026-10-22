@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Insights — ChurnIQ{% endblock %}
+
+{% block content %}
+<div class="container page">
+  <header class="page-header">
+    <h1>Dataset Insights</h1>
+    <p class="subtitle">Key patterns from the Telco Customer Churn dataset that inform the prediction model.</p>
+  </header>
+
+  <div class="stats-row tight">
+    <div class="stat card">
+      <div class="stat-value">7,043</div>
+      <div class="stat-label">Total Customers</div>
+    </div>
+    <div class="stat card">
+      <div class="stat-value">26.5%</div>
+      <div class="stat-label">Churn Rate</div>
+    </div>
+    <div class="stat card">
+      <div class="stat-value">73.5%</div>
+      <div class="stat-label">Retention Rate</div>
+    </div>
+    <div class="stat card">
+      <div class="stat-value">~32</div>
+      <div class="stat-label">Avg Tenure (mo)</div>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div class="card">
+      <h3 class="section-title">Contract Distribution</h3>
+      <div class="bar-list">
+        <div class="bar-item">
+          <div class="bar-meta"><span>Month-to-month</span><span>55%</span></div>
+          <div class="bar"><div class="bar-fill" style="width:55%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-meta"><span>Two year</span><span>24%</span></div>
+          <div class="bar"><div class="bar-fill" style="width:24%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-meta"><span>One year</span><span>21%</span></div>
+          <div class="bar"><div class="bar-fill" style="width:21%"></div></div>
+        </div>
+      </div>
+      <p class="muted-note">Month-to-month contracts show the highest churn propensity.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="section-title">Internet Service</h3>
+      <div class="bar-list">
+        <div class="bar-item">
+          <div class="bar-meta"><span>Fiber optic</span><span>44%</span></div>
+          <div class="bar"><div class="bar-fill accent" style="width:44%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-meta"><span>DSL</span><span>34%</span></div>
+          <div class="bar"><div class="bar-fill accent" style="width:34%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-meta"><span>No internet</span><span>22%</span></div>
+          <div class="bar"><div class="bar-fill accent" style="width:22%"></div></div>
+        </div>
+      </div>
+      <p class="muted-note">Fiber customers tend to have higher monthly charges and different churn patterns.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="section-title">Key Risk Signals</h3>
+      <ul class="insight-list">
+        <li><strong>Short tenure</strong> — customers in their first year are more likely to leave.</li>
+        <li><strong>Month-to-month contracts</strong> — flexibility often correlates with higher attrition.</li>
+        <li><strong>Electronic check payments</strong> — associated with elevated churn in the training data.</li>
+        <li><strong>No online security / tech support</strong> — lack of add-on services can signal weaker attachment.</li>
+        <li><strong>High monthly charges</strong> — especially when combined with short tenure.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 class="section-title">What the Model Sees</h3>
+      <p>The decision tree evaluates combinations of the above factors (plus gender, partner status, dependents, streaming services, and more). It does not rely on a single rule — it learns interaction effects from the historical data.</p>
+      <p class="muted-note">Use the Predict page to score any customer profile against these learned patterns.</p>
+      <a href="{{ url_for('predict') }}" class="btn primary small">Try a Prediction</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
